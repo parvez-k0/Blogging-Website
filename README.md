@@ -1,6 +1,6 @@
-# ThoughtFlow
+# ShareItAll
 
-ThoughtFlow is an engaging platform that allows users to share their thoughts, connect with others, and create meaningful conversations. Whether you're sipping chai or taking a break, ThoughtFlow brings people closer through words.
+ShareItAll is an engaging platform that allows users to share their thoughts, connect with others, and create meaningful conversations. Whether you're sipping chai or taking a break, ShareItAll brings people closer through words.
 
 ## Features
 
@@ -14,8 +14,8 @@ ThoughtFlow is an engaging platform that allows users to share their thoughts, c
 
 - **Frontend**: HTML, CSS, Bootstrap
 - **Backend**: Django (Python)
-- **Database**: SQLite (Development), PostgreSQL (Production)
-- **Deployment**: Heroku or AWS
+- **Database**: SQLite (Development)
+
 
 ## Installation
 
@@ -94,7 +94,7 @@ Contributions are welcome! Here's how you can get started:
 5. Open a pull request.
 
 ## License
-
+**MOHD PARVEZ KHAN**
 This project is licensed under the [MIT License](LICENSE).
 
 ---
