@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ShareItAll-home
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <strong>Chai & Tweet</strong> <small style="font-size: 0.8rem;">Sip, Share, Connect</small>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'tweet_create' %}">Create</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' user.username %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white ms-2 px-3 py-1" href="{% url 'logout' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="fw-bold" style="color: #2c3e50;">Your Daily Dose of Chai & Conversations</h1>
+    <p style="color: black;">"Share your thoughts while sipping your favorite chai. Share, connect, and let your voice be heard."</p>
+  </div>
+
+  <!-- Button to create a new tweet -->
+  <div class="d-flex justify-content-end mt-4 me-3">
+    <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create Post</a>
+  </div>
+
+  <!-- Tweets Section -->
+  <div class="container d-flex flex-column align-items-center mt-4">
+    {% for tweet in tweets %}
+    <div class="card mb-4 shadow-sm rounded-3" style="max-width: 1200px; width: 100%; background-color: #f9f9f9; border: 1px solid #ddd;">
+      <!-- Tweet Content -->
+      <div class="card-body p-4">
+        <div class="d-flex justify-content-start align-items-center mb-3">
+          <!-- Profile Circle for the user -->
+          <div class="rounded-circle" style="width: 50px; height: 50px; background-color: #3498db; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+            <span style="color: white; font-weight: bold;">{{ tweet.user.username|slice:':1'|capfirst }}</span>
+          </div>
+
+          <!-- User Information -->
+          <div>
+            <h6 class="m-0" style="color: #2c3e50;">
+              {% if tweet.user.first_name and tweet.user.last_name %}
+                {{ tweet.user.first_name|capfirst }} {{ tweet.user.last_name|capfirst }}
+              {% else %}
+                {{ tweet.user.username|capfirst }}
+              {% endif %}
+            </h6>
+            <small class="text-muted" style="color: black !important;">
+              {{ tweet.updated_at|date:"F j, Y, g:i a" }}
+            </small>
+          </div>
+        </div>
+
+        <!-- Tweet Text -->
+        <p class="card-text mb-3" style="color: #2c3e50;">{{ tweet.text }}</p>
+
+        <!-- Tweet Image -->
+        {% if tweet.photo %}
+        <div class="text-center mb-3">
+          <img src="{{ tweet.photo.url }}" 
+               alt="Tweet Image" 
+               class="img-fluid rounded-3" 
+               style="max-height: 500px; object-fit: contain;">
+        </div>
+        {% endif %}
+
+        <!-- Edit and Delete Buttons -->
+        {% if tweet.user == user %}
+        <div class="d-flex justify-content-end gap-2 mt-3">
+          <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary btn-sm">Edit</a>
+          <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Footer -->
+<!-- <footer class="text-center py-4 mt-5" style="background-color: #f8f9fa; color: #6c757d;">
+  <p class="m-0">© {{ current_year }} Chai & Tweet. All Rights Reserved.</p>
+</footer> -->
+{% endblock %}

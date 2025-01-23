@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ShareItAll-Form
+{% endblock %}
+
+{% block content %}
+
+<style>
+    textarea {
+        width: 100% !important;
+        min-height: 150px;
+    }
+</style>
+
+<div class="text-center mt-3">
+    <h1 class="fw-bold" style="color: #2c3e50;">Your Daily Dose of Chai & Conversations</h1>
+    <p style="color: black;">"Share your thoughts while sipping your favorite chai. Share, connect, and let your voice be heard."</p>
+  </div>
+<!-- <h2 class="text-center mb-4 text-dark">
+    {% if form.instance.pk %}
+    Edit Post 
+    {% else %}
+    Share Post
+    {% endif %}
+</h2> -->
+
+<div class="container d-flex justify-content-center mt-5" style="color: black;">
+    <div class="card shadow-lg rounded-3" style="max-width: 800px; width: 100%; background-color: #f7f7f7; padding: 30px; border: none;">
+        <form method="POST" enctype="multipart/form-data" style="color: black;">
+            <h4 class="text-center mb-4 text-dark">
+                {% if form.instance.pk %}
+                Edit Post 
+                {% else %}
+                Share Post
+                {% endif %}
+            </h4>
+            {% csrf_token %}
+            
+            <div class="form-group mb-4">
+                <!-- Increase the width of the textarea -->
+                {{ form.as_p }}
+            </div>
+
+            <button class="btn btn-warning w-100" type="submit">Post</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{% url 'tweet_list' %}" class="btn btn-outline-secondary">Back</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

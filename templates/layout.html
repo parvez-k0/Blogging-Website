@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title style="color: black;">
+      {% block title %}ShareItAll{% endblock %}
+    </title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      background-image: url("{% static 'images/background.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #fff;
+    }
+    .content {
+      flex: 1;
+    }
+    nav.navbar {
+      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      color: #fff;
+    }
+    nav.navbar a.navbar-brand {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    nav.navbar a.btn {
+      margin-left: 1rem;
+    }
+    footer {
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent footer */
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'tweet_list' %}">ShareItAll</a>
+        <div class="d-flex">
+          <div>
+            <a href="{% url 'aboutus' %}" class="btn btn-outline-light btn-sm">About us</a>
+          </div>
+          <div>
+            <a href="{% url 'contactus' %}" class="btn btn-outline-light btn-sm">Contact us</a>
+          </div>
+          {% if user.is_authenticated %}
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+           <div> <button class="btn btn-danger btn-sm mx-2" type="submit">Logout</button></div>
+          </form>
+          {% else %}
+          <a href="{% url 'register' %}" class="btn btn-secondary btn-sm">Register</a>
+          <a href="{% url 'login' %}" class="btn btn-success btn-sm">Login</a>
+          {% endif %}
+          
+        </div>
+        
+      </div>
+    </nav>
+    <div class="container content">
+      {% block content %}{% endblock %}
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 ShareItAll. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

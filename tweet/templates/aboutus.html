@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+About Us - ShareItAll
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="text-center">
+    <h1 class="display-4">About Us</h1>
+    <p class="lead">We are passionate about sharing knowledge and making connections.</p>
+  </div>
+
+  <div class="row mt-5">
+    <!-- Team Members Section -->
+    <div class="col-md-4 mb-4" >
+      <div class="card shadow-sm">
+        <img src="/static/images/john.jpg" class="card-img-top" alt="Team Member 1">
+        <div class="card-body text-center" style="color: black;">
+          <h5 class="card-title">John Doe</h5>
+          <p class="card-text">Founder & CEO</p>
+          <p>John is the visionary behind ShareItAll, leading the team with a passion for technology and community building.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="/static/images/smith.jpg" class="card-img-top" alt="Team Member 2">
+        <div class="card-body text-center" style="color: black;">
+          <h5 class="card-title">Jane Smith</h5>
+          <p class="card-text">Chief Marketing Officer</p>
+          <p>Jane ensures our message reaches the world, creating campaigns that engage and inspire.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="/static/images/zarina.jpg" class="card-img-top" alt="Team Member 3">
+        <div class="card-body text-center" style="color: black;">
+          <h5 class="card-title">Alice Swift</h5>
+          <p class="card-text">Head of Product Development</p>
+          <p>Michael oversees the creation of innovative products that help people share and learn effortlessly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Mission Section -->
+  <div class="text-center mt-5" style="color: black;">
+    <h2 class="display-5">Our Mission</h2>
+    <p class="lead">To foster a collaborative environment where ideas and experiences are shared freely, enabling personal and professional growth.</p>
+  </div>
+
+  <!-- Our Values Section -->
+  <div class="row mt-5" style="color: black;">
+    <div class="col-md-4">
+      <h4 class="text-center">Innovation</h4>
+      <p class="text-center">We are committed to continuous innovation, always seeking new ways to improve and evolve.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="text-center">Integrity</h4>
+      <p class="text-center">We value transparency and honesty in all our dealings, creating a trustworthy environment for all.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="text-center">Community</h4>
+      <p class="text-center">We believe in the power of community and work to build connections that last a lifetime.</p>
+    </div>
+  </div>
+</div>
+
+{% block extra_styles %}
+<style>
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .display-4 {
+    font-weight: bold;
+    color: #343a40;
+  }
+
+  .lead {
+    color: #6c757d;
+  }
+
+  .card-body {
+    background-color: #f8f9fa;
+  }
+
+  .text-muted {
+    color: #6c757d;
+  }
+
+  .card {
+    border: none;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .container {
+    max-width: 1000px;
+  }
+</style>
+{% endblock %}
+{% endblock %}
