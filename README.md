@@ -21,12 +21,12 @@ ShareItAll is an engaging platform that allows users to share their thoughts, co
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/thoughtflow.git
+   git clone https://github.com/yourusername/shareitall.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd thoughtflow
+   cd shareitall
    ```
 
 3. Create and activate a virtual environment:
@@ -99,4 +99,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Feel free to reach out with any questions or feedback! Together, let's make ThoughtFlow the best place to share thoughts and connect.
+Feel free to reach out with any questions or feedback! Together, let's make ShareItAll the best place to share thoughts and connect.
