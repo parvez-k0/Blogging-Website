@@ -65,7 +65,7 @@ ShareItAll is an engaging platform that allows users to share their thoughts, co
 ## Project Structure
 
 ```
-thoughtflow/
+shareitall/
 ├── templates/      # HTML files for the UI
 ├── static/         # CSS, JS, and images
 ├── app/            # Django app containing models, views, and urls
